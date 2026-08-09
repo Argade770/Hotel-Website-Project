@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Paradise Inn - Rooms</title>
+    <title>Paradise Inn - Facilities</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
         }
 
-
         /* NAVBAR */
-
         nav {
-            width: 100%;
-            background-color: #333;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            padding: 15px 30px;
+            background-color: #444;
+            padding: 15px 25px;
 
             position: fixed;
+            width: 100%;
             top: 0;
             left: 0;
 
@@ -41,142 +38,107 @@
         }
 
         .hotel-name {
-             font-family: 'Lobster', cursive;
-            font-size: 36px; /* Increased font size */
+            font-family: 'Lobster', cursive;
+            font-size: 40px;
             color: white;
         }
 
-        .menu {
+        nav div:last-child {
             display: flex;
-            gap: 5px;
+            align-items: center;
         }
 
-        .menu a {
+        nav a {
             color: white;
+            padding: 14px 18px;
             text-decoration: none;
-
-            padding: 12px 15px;
-
+            text-align: center;
+            margin-left: 5px;
             font-weight: bold;
         }
 
-        .menu a:hover {
+        nav a:hover {
             background-color: #555;
             border-radius: 5px;
         }
 
-
-        /* MAIN */
-
+        /* CONTAINER */
         .container {
-            width: 90%;
-            max-width: 1200px;
-
-            margin: 110px auto 30px;
-        }
-
-        .title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .title h1 {
-            font-size: 35px;
-            color: #333;
-        }
-
-
-        /* ROOM GRID */
-
-        .room-list {
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 25px;
-        }
-
-
-        /* ROOM CARD */
-
-        .room {
-            background-color: white;
-
-            border-radius: 12px;
-
-            overflow: hidden;
-
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-
-            transition: 0.3s;
-        }
-
-        .room:hover {
-            transform: translateY(-5px);
-        }
-
-
-        /* IMAGE */
-
-        .room img {
             width: 100%;
-            height: 250px;
+            max-width: 1400px;
 
-            display: block;
-
-            object-fit: cover;
-        }
-
-
-        /* ROOM INFO */
-
-        .room-info {
+            margin: 120px auto 20px;
             padding: 20px;
         }
 
-        .room-info h2 {
-            color: #333;
-            margin-bottom: 10px;
+        /* FACILITIES */
+        .facilities {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
         }
 
-        .room-info p {
+        /* FACILITY CARD */
+        .facility {
+            width: calc(33.33% - 25px);
+
+            background-color: #e0e0e0;
+
+            border-radius: 15px;
+
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+            padding: 30px;
+
+            text-align: center;
+
+            transition: transform 0.3s ease;
+        }
+
+        .facility:hover {
+            transform: translateY(-8px);
+        }
+
+        /* IMAGE */
+        .facility img {
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            margin-bottom: 20px;
+
+            border: 6px solid #f4f4f4;
+
+            transition: transform 0.3s ease;
+        }
+
+        .facility:hover img {
+            transform: scale(1.1);
+        }
+
+        /* HEADING */
+        .facility h3 {
+            font-size: 28px;
+            margin: 10px 0 15px;
+            color: #444;
+        }
+
+        /* PARAGRAPH */
+        .facility p {
+            font-size: 18px;
+            margin: 0;
             color: #666;
-
             line-height: 1.5;
-
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-weight: bold;
-            color: #222;
         }
 
 
-        /* BOOK BUTTON */
-
-        .book-button {
-            display: inline-block;
-
-            background-color: #333;
-
-            color: white;
-
-            text-decoration: none;
-
-            padding: 12px 25px;
-
-            border-radius: 25px;
-
-            margin-top: 10px;
-        }
-
-        .book-button:hover {
-            background-color: #555;
-        }
-
-
-        /* TABLET */
+        /* =================================
+           TABLET
+           ================================= */
 
         @media screen and (max-width: 900px) {
 
@@ -185,147 +147,187 @@
             }
 
             .hotel-name {
-                font-size: 28px;
+                font-size: 32px;
             }
 
-            .menu a {
-                padding: 10px 8px;
+            nav a {
+                padding: 10px;
                 font-size: 14px;
             }
 
-            .room-list {
-                grid-template-columns: repeat(2, 1fr);
+            .facility {
+                width: calc(50% - 20px);
             }
 
-            .room img {
-                height: 220px;
+            .facility img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .facility h3 {
+                font-size: 24px;
+            }
+
+            .facility p {
+                font-size: 16px;
             }
         }
 
 
-        /* MOBILE */
+        /* =================================
+           MOBILE
+           ================================= */
 
         @media screen and (max-width: 600px) {
+
+            body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            /* MOBILE NAVBAR */
 
             nav {
                 position: relative;
 
+                width: 100%;
+
                 flex-direction: column;
 
-                padding: 15px 10px;
+                padding: 12px 10px;
             }
 
             .hotel-name {
-                font-size: 28px;
+                font-size: 30px;
 
                 margin-bottom: 10px;
             }
 
-            .menu {
+            nav div:last-child {
+                width: 100%;
+
+                display: flex;
+
+                flex-direction: column;
+            }
+
+            nav a {
+                width: 100%;
+
+                margin: 2px 0;
+
+                padding: 10px;
+
+                font-size: 15px;
+            }
+
+
+            /* MOBILE CONTAINER */
+
+            .container {
+                width: 100%;
+
+                max-width: 100%;
+
+                margin: 20px auto;
+
+                padding: 15px;
+            }
+
+
+            /* MOBILE FACILITIES */
+
+            .facilities {
                 width: 100%;
 
                 display: flex;
 
                 flex-direction: column;
 
-                gap: 2px;
-            }
-
-            .menu a {
-                width: 100%;
-
-                text-align: center;
-
-                background-color: #444;
-
-                padding: 10px;
-            }
-
-
-            .container {
-                width: 95%;
-
-                margin: 25px auto;
-            }
-
-            .title h1 {
-                font-size: 28px;
-            }
-
-
-            /* ONE ROOM PER ROW */
-
-            .room-list {
-                display: grid;
-
-                grid-template-columns: 1fr;
+                align-items: center;
 
                 gap: 20px;
             }
 
 
-            .room {
-                width: 100%;
-            }
+            /* MOBILE CARD */
 
-
-            .room img {
+            .facility {
                 width: 100%;
 
-                height: 200px;
+                max-width: 400px;
+
+                margin: 0;
+
+                padding: 20px;
             }
 
 
-            .room-info {
-                padding: 15px;
+            /* MOBILE IMAGE */
+
+            .facility img {
+                width: 150px;
+
+                height: 150px;
             }
 
-            .room-info h2 {
-                font-size: 21px;
+
+            /* MOBILE HEADING */
+
+            .facility h3 {
+                font-size: 24px;
             }
 
-            .room-info p {
-                font-size: 14px;
-            }
 
-            .book-button {
-                padding: 11px 22px;
+            /* MOBILE TEXT */
+
+            .facility p {
+                font-size: 16px;
             }
         }
 
 
-        /* SMALL MOBILE */
+        /* =================================
+           SMALL MOBILE
+           ================================= */
 
         @media screen and (max-width: 400px) {
 
             .hotel-name {
-                font-size: 24px;
+                font-size: 26px;
             }
 
-            .title h1 {
-                font-size: 24px;
+            nav a {
+                font-size: 14px;
+                padding: 8px;
             }
 
-            .room img {
-                height: 180px;
+            .container {
+                padding: 10px;
             }
 
-            .room-info h2 {
-                font-size: 19px;
+            .facility {
+                padding: 15px;
             }
 
-            .room-info p {
-                font-size: 13px;
+            .facility img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .facility h3 {
+                font-size: 21px;
+            }
+
+            .facility p {
+                font-size: 14px;
             }
         }
 
     </style>
-
 </head>
 
-
 <body>
-
 
     <!-- NAVBAR -->
 
@@ -335,323 +337,116 @@
             Paradise Inn
         </div>
 
-        <div class="menu">
-
+        <div>
             <a href="index.html">Home</a>
-
             <a href="rooms.html">Rooms</a>
-
             <a href="facilities.html">Facilities</a>
-
             <a href="contact.html">Contact Us</a>
-
             <a href="about.html">About</a>
-
         </div>
 
     </nav>
 
 
-
-    <!-- MAIN CONTENT -->
+    <!-- MAIN CONTAINER -->
 
     <div class="container">
 
-        <div class="title">
-
-            <h1>Our Rooms</h1>
-
-        </div>
+        <div class="facilities">
 
 
-        <div class="room-list">
+            <!-- FACILITY 1 -->
 
+            <div class="facility">
 
-            <!-- ROOM 1 -->
+                <img src="./images/Fact1.jpg" alt="Swimming Pool">
 
-            <div class="room">
+                <h3>Swimming Pool</h3>
 
-                <img src="images/Room2.jpg" alt="Deluxe Room">
-
-                <div class="room-info">
-
-                    <h2>Deluxe Room</h2>
-
-                    <p>
-                        Spacious room with a king-size bed,
-                        ensuite bathroom and sea view.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹8000 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
+                <p>
+                    Enjoy our clean and beautiful swimming pool
+                    for relaxation and fun.
+                </p>
 
             </div>
 
 
+            <!-- FACILITY 2 -->
 
-            <!-- ROOM 2 -->
+            <div class="facility">
 
-            <div class="room">
+                <img src="./images/Fact2.jpg" alt="Gym">
 
-                <img src="images/Room11.jpg" alt="Superior Room">
+                <h3>Fitness Center</h3>
 
-                <div class="room-info">
-
-                    <h2>Superior Room</h2>
-
-                    <p>
-                        Comfortable room with a queen-size bed,
-                        modern amenities and city view.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹7000 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
+                <p>
+                    Stay fit and healthy with our fully equipped
+                    modern fitness center.
+                </p>
 
             </div>
 
 
+            <!-- FACILITY 3 -->
 
-            <!-- ROOM 3 -->
+            <div class="facility">
 
-            <div class="room">
+                <img src="./images/Fact4.jpg" alt="Restaurant">
 
-                <img src="images/Room3.jpg" alt="Executive Suite">
+                <h3>Restaurant</h3>
 
-                <div class="room-info">
-
-                    <h2>Executive Suite</h2>
-
-                    <p>
-                        Luxurious suite with separate living area,
-                        king-size bed and premium facilities.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹5500 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
+                <p>
+                    Enjoy delicious food and drinks at our
+                    comfortable restaurant.
+                </p>
 
             </div>
 
 
+            <!-- FACILITY 4 -->
 
-            <!-- ROOM 4 -->
+            <div class="facility">
 
-            <div class="room">
+                <img src="./images/Fact6.jpg" alt="Free WiFi">
 
-                <img src="images/Room4.jpg" alt="Standard Room">
+                <h3>Free WiFi</h3>
 
-                <div class="room-info">
-
-                    <h2>Standard Room</h2>
-
-                    <p>
-                        Cozy room with a double bed,
-                        suitable for budget travelers.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹3500 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
+                <p>
+                    High-speed WiFi is available throughout
+                    the hotel.
+                </p>
 
             </div>
 
 
+            <!-- FACILITY 5 -->
 
-            <!-- ROOM 5 -->
+            <div class="facility">
 
-            <div class="room">
+                <img src="./images/Safe and secure parking .jpg" alt="Parking">
 
-                <img src="images/Room5.jpg" alt="Family Room">
+                <h3>Parking</h3>
 
-                <div class="room-info">
-
-                    <h2>Family Room</h2>
-
-                    <p>
-                        Spacious room with two double beds,
-                        perfect for families.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹9000 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
+                <p>
+                    Safe and secure parking facility is available
+                    for our guests.
+                </p>
 
             </div>
 
 
+            <!-- FACILITY 6 -->
 
-            <!-- ROOM 6 -->
+            <div class="facility">
 
-            <div class="room">
+                <img src="./images/Fact3.jpg" alt="Spa">
 
-                <img src="images/Room6.jpg" alt="Single Room">
+                <h3>Spa & Wellness</h3>
 
-                <div class="room-info">
-
-                    <h2>Single Room</h2>
-
-                    <p>
-                        Compact room with a single bed,
-                        ideal for solo travelers.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹2000 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ROOM 7 -->
-
-            <div class="room">
-
-                <img src="images/Room7.jpg" alt="Junior Suite">
-
-                <div class="room-info">
-
-                    <h2>Junior Suite</h2>
-
-                    <p>
-                        Comfortable suite with a king-size bed
-                        and small living area.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹2500 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ROOM 8 -->
-
-            <div class="room">
-
-                <img src="images/Room8.jpg" alt="Honeymoon Suite">
-
-                <div class="room-info">
-
-                    <h2>Honeymoon Suite</h2>
-
-                    <p>
-                        Romantic suite with king-size bed,
-                        jacuzzi and beautiful view.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹11000 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ROOM 9 -->
-
-            <div class="room">
-
-                <img src="images/Room9.jpg" alt="Presidential Suite">
-
-                <div class="room-info">
-
-                    <h2>Presidential Suite</h2>
-
-                    <p>
-                        Opulent suite with multiple rooms,
-                        private kitchen and exclusive services.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹7500 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ROOM 10 -->
-
-            <div class="room">
-
-                <img src="images/Room10.jpg" alt="Garden View Room">
-
-                <div class="room-info">
-
-                    <h2>Garden View Room</h2>
-
-                    <p>
-                        Serene room with queen-size bed
-                        and relaxing garden view.
-                    </p>
-
-                    <p class="price">
-                        Price: ₹9500 per night
-                    </p>
-
-                    <a href="booking.html" class="book-button">
-                        Book Now
-                    </a>
-
-                </div>
+                <p>
+                    Relax your body and mind with our premium
+                    spa and wellness services.
+                </p>
 
             </div>
 
@@ -661,5 +456,4 @@
     </div>
 
 </body>
-
 </html>
