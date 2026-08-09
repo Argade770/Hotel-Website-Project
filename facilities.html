@@ -13,6 +13,15 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+        @media  screen and(max-width:600px) {
+            body,nav{
+width: 600px;
+            }
+            .hotel-name,.container{
+                width: 600px;
+            }
+            
+        }
         nav {
             display: flex;
             justify-content: space-between;
@@ -35,7 +44,7 @@
         nav a:hover {
             background-color: #555;
         }
-        nav .hotel-name {
+        nav .hotel-name{
             font-family: 'Lobster', cursive;
             font-size: 40px; /* Increased font size */
             color: white;
@@ -86,6 +95,20 @@
             margin: 0;
             color: #666;
         }
+
+
+        /* MOBILE */ @media screen and (max-width: 600px)
+         { nav { position: relative; flex-direction: column; padding: 15px 10px; }
+          nav .hotel-name { font-size: 32px; margin-bottom: 10px; }
+           nav div:last-child { width: 100%; flex-direction: column; }
+            nav a { width: 100%; margin: 2px 0; padding: 10px; }
+             .container { margin: 20px auto; padding: 15px; }
+              .facilities { flex-direction: column; align-items: center; }
+               .facility { width: 100%; max-width: 400px; padding: 20px; }
+                .facility img { width: 150px; height: 150px; }
+                 .facility h3 { font-size: 24px; }
+         .facility p { font-size: 16px; }
+    }
     </style>
 </head>
 <body>
