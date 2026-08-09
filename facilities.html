@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Paradise Inn - Facilities</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             font-family: Arial, sans-serif;
@@ -13,154 +19,441 @@
             padding: 0;
             background-color: #f4f4f4;
         }
-        @media  screen and(max-width:600px) {
-            body,nav{
-width: 600px;
-            }
-            .hotel-name,.container{
-                width: 600px;
-            }
-            
-        }
+
+        /* NAVBAR */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             background-color: #444;
-            padding: 15px 15px; /* Increased padding */
+            padding: 15px 25px;
+
             position: fixed;
             width: 100%;
             top: 0;
+            left: 0;
+
             z-index: 1000;
         }
+
+        .hotel-name {
+            font-family: 'Lobster', cursive;
+            font-size: 40px;
+            color: white;
+        }
+
+        nav div:last-child {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
             color: white;
-            padding: 16px 24px; /* Increased padding */
+            padding: 14px 18px;
             text-decoration: none;
             text-align: center;
-            margin-right: 10px;
+            margin-left: 5px;
             font-weight: bold;
         }
+
         nav a:hover {
             background-color: #555;
+            border-radius: 5px;
         }
-        nav .hotel-name{
-            font-family: 'Lobster', cursive;
-            font-size: 40px; /* Increased font size */
-            color: white;
-        }
+
+        /* CONTAINER */
         .container {
-            max-width: 1600px; /* Increased container width */
+            width: 100%;
+            max-width: 1400px;
+
             margin: 120px auto 20px;
             padding: 20px;
         }
+
+        /* FACILITIES */
         .facilities {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 20px;
+            justify-content: center;
+            gap: 25px;
         }
+
+        /* FACILITY CARD */
         .facility {
-            border-radius: 15px; /* Increased border radius */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Improved box shadow */
-            width: calc(30% - 40px); /* Adjusted width for three-column layout */
-            margin: 20px;
-            padding: 30px; /* Increased padding */
+            width: calc(33.33% - 25px);
+
+            background-color: #e0e0e0;
+
+            border-radius: 15px;
+
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+            padding: 30px;
+
             text-align: center;
+
             transition: transform 0.3s ease;
-            background-color: #e0e0e0; /* Default background color for all facilities */
         }
+
         .facility:hover {
-            transform: translateY(-8px); /* Hover effect - lift up */
+            transform: translateY(-8px);
         }
+
+        /* IMAGE */
         .facility img {
-            width: 180px; /* Increased image size */
-            height: 180px; /* Increased image size */
+            width: 180px;
+            height: 180px;
+
             border-radius: 50%;
-            margin-bottom: 20px; /* Increased margin */
+
             object-fit: cover;
-            border: 6px solid #f4f4f4; /* Added border for image */
+
+            margin-bottom: 20px;
+
+            border: 6px solid #f4f4f4;
+
             transition: transform 0.3s ease;
         }
+
         .facility:hover img {
-            transform: scale(1.1); /* Hover effect - zoom in */
+            transform: scale(1.1);
         }
+
+        /* HEADING */
         .facility h3 {
-            font-size: 28px; /* Increased heading size */
-            margin-bottom: 15px; /* Increased margin */
-            color: #444; /* Darker text color */
+            font-size: 28px;
+            margin: 10px 0 15px;
+            color: #444;
         }
+
+        /* PARAGRAPH */
         .facility p {
-            font-size: 18px; /* Increased paragraph size */
+            font-size: 18px;
             margin: 0;
             color: #666;
+            line-height: 1.5;
         }
 
 
-        /* MOBILE */ @media screen and (max-width: 600px)
-         { nav { position: relative; flex-direction: column; padding: 15px 10px; }
-          nav .hotel-name { font-size: 32px; margin-bottom: 10px; }
-           nav div:last-child { width: 100%; flex-direction: column; }
-            nav a { width: 100%; margin: 2px 0; padding: 10px; }
-             .container { margin: 20px auto; padding: 15px; }
-              .facilities { flex-direction: column; align-items: center; }
-               .facility { width: 100%; max-width: 400px; padding: 20px; }
-                .facility img { width: 150px; height: 150px; }
-                 .facility h3 { font-size: 24px; }
-         .facility p { font-size: 16px; }
-    }
+        /* =================================
+           TABLET
+           ================================= */
+
+        @media screen and (max-width: 900px) {
+
+            nav {
+                padding: 12px 15px;
+            }
+
+            .hotel-name {
+                font-size: 32px;
+            }
+
+            nav a {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .facility {
+                width: calc(50% - 20px);
+            }
+
+            .facility img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .facility h3 {
+                font-size: 24px;
+            }
+
+            .facility p {
+                font-size: 16px;
+            }
+        }
+
+
+        /* =================================
+           MOBILE
+           ================================= */
+
+        @media screen and (max-width: 600px) {
+
+            body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            /* MOBILE NAVBAR */
+
+            nav {
+                position: relative;
+
+                width: 100%;
+
+                flex-direction: column;
+
+                padding: 12px 10px;
+            }
+
+            .hotel-name {
+                font-size: 30px;
+
+                margin-bottom: 10px;
+            }
+
+            nav div:last-child {
+                width: 100%;
+
+                display: flex;
+
+                flex-direction: column;
+            }
+
+            nav a {
+                width: 100%;
+
+                margin: 2px 0;
+
+                padding: 10px;
+
+                font-size: 15px;
+            }
+
+
+            /* MOBILE CONTAINER */
+
+            .container {
+                width: 100%;
+
+                max-width: 100%;
+
+                margin: 20px auto;
+
+                padding: 15px;
+            }
+
+
+            /* MOBILE FACILITIES */
+
+            .facilities {
+                width: 100%;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: center;
+
+                gap: 20px;
+            }
+
+
+            /* MOBILE CARD */
+
+            .facility {
+                width: 100%;
+
+                max-width: 400px;
+
+                margin: 0;
+
+                padding: 20px;
+            }
+
+
+            /* MOBILE IMAGE */
+
+            .facility img {
+                width: 150px;
+
+                height: 150px;
+            }
+
+
+            /* MOBILE HEADING */
+
+            .facility h3 {
+                font-size: 24px;
+            }
+
+
+            /* MOBILE TEXT */
+
+            .facility p {
+                font-size: 16px;
+            }
+        }
+
+
+        /* =================================
+           SMALL MOBILE
+           ================================= */
+
+        @media screen and (max-width: 400px) {
+
+            .hotel-name {
+                font-size: 26px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .facility {
+                padding: 15px;
+            }
+
+            .facility img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .facility h3 {
+                font-size: 21px;
+            }
+
+            .facility p {
+                font-size: 14px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
+
+    <!-- NAVBAR -->
+
     <nav>
-        <div class="hotel-name">Paradise Inn</div>
+
+        <div class="hotel-name">
+            Paradise Inn
+        </div>
+
         <div>
             <a href="index.html">Home</a>
             <a href="rooms.html">Rooms</a>
             <a href="facilities.html">Facilities</a>
             <a href="contact.html">Contact Us</a>
             <a href="about.html">About</a>
- </div>
-    </nav>
-    <div class="container">
-        <div class="facilities">
-            <!-- Facility 1 -->
-            <div class="facility">
-                <img src="images/Fact1.jpg" alt="Swimming Pool">
-                <h3>Swimming Pool</h3>
-                <p>Relax and unwind in our state-of-the-art swimming pool.</p>
-            </div>
-            <!-- Facility 2 -->
-            <div class="facility">
-                <img src="images/Fact2.jpg" alt="Gym">
-                <h3>Fitness Center</h3>
-                <p>Stay fit with our fully-equipped fitness center.</p>
-            </div>
-            <!-- Facility 3 -->
-            <div class="facility">
-                <img src="images/Fact3.jpg" alt="Spa">
-                <h3>Spa & Wellness</h3>
-                <p>Indulge in rejuvenating spa treatments.</p>
-            </div>
-            <!-- Facility 4 -->
-            <div class="facility">
-                <img src="images/Fact4.jpg" alt="Restaurant">
-                <h3>Restaurant</h3>
-                <p>Enjoy gourmet meals prepared by our world-class chefs.</p>
-            </div>
-            <!-- Facility 5 -->
-            <div class="facility">
-                <img src="images/Fact5.jpg" alt="Meeting Rooms">
-                <h3>Meeting Rooms</h3>
-                <p>Host productive meetings in our versatile meeting rooms.</p>
-            </div>
-            <!-- Facility 6 -->
-            <div class="facility">
-                <img src="images/Fact6.jpg" alt="Free WiFi">
-                <h3>Free WiFi</h3>
-                <p>Stay connected with complimentary high-speed WiFi.</p>
-            </div>
         </div>
+
+    </nav>
+
+
+    <!-- MAIN CONTAINER -->
+
+    <div class="container">
+
+        <div class="facilities">
+
+
+            <!-- FACILITY 1 -->
+
+            <div class="facility">
+
+                <img src="./images/Fact1.jpg" alt="Swimming Pool">
+
+                <h3>Swimming Pool</h3>
+
+                <p>
+                    Enjoy our clean and beautiful swimming pool
+                    for relaxation and fun.
+                </p>
+
+            </div>
+
+
+            <!-- FACILITY 2 -->
+
+            <div class="facility">
+
+                <img src="./images/Fact2.jpg" alt="Gym">
+
+                <h3>Fitness Center</h3>
+
+                <p>
+                    Stay fit and healthy with our fully equipped
+                    modern fitness center.
+                </p>
+
+            </div>
+
+
+            <!-- FACILITY 3 -->
+
+            <div class="facility">
+
+                <img src="./images/Fact4.jpg" alt="Restaurant">
+
+                <h3>Restaurant</h3>
+
+                <p>
+                    Enjoy delicious food and drinks at our
+                    comfortable restaurant.
+                </p>
+
+            </div>
+
+
+            <!-- FACILITY 4 -->
+
+            <div class="facility">
+
+                <img src="./images/Fact6.jpg" alt="Free WiFi">
+
+                <h3>Free WiFi</h3>
+
+                <p>
+                    High-speed WiFi is available throughout
+                    the hotel.
+                </p>
+
+            </div>
+
+
+            <!-- FACILITY 5 -->
+
+            <div class="facility">
+
+                <img src="./images/Safe and secure parking .jpg" alt="Parking">
+
+                <h3>Parking</h3>
+
+                <p>
+                    Safe and secure parking facility is available
+                    for our guests.
+                </p>
+
+            </div>
+
+
+            <!-- FACILITY 6 -->
+
+            <div class="facility">
+
+                <img src="./images/Fact3.jpg" alt="Spa">
+
+                <h3>Spa & Wellness</h3>
+
+                <p>
+                    Relax your body and mind with our premium
+                    spa and wellness services.
+                </p>
+
+            </div>
+
+
+        </div>
+
     </div>
+
 </body>
 </html>
