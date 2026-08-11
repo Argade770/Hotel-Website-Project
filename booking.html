@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paradise Inn - Book Your Stay</title>
-           <link rel="icon" type="image/png" href="./images/235889.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <style>
+      <link rel="icon" type="image/png" href="./images/235889.png">
+   <style>
         @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
         body {
@@ -61,6 +61,8 @@
         input[type="text"],
         input[type="email"],
         input[type="date"],
+        input[type="time"],
+        input[type="number"],
         select {
             width: 100%;
             padding: 10px;
@@ -197,7 +199,7 @@
             <input type="email" id="email" name="email" required>
 
             <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone" maxlength="10" required>
+            <input type="number" id="phone" name="phone"  required min="1" max="10">
 
             <label for="dates">Select Your Stay:</label>
             <input type="text" id="daterange" name="daterange" required>
@@ -216,6 +218,8 @@
                 <option value="Presidential Suite" data-price="7500">Presidential Suite</option>
                 <option value="Garden View Room" data-price="9500">Garden View Room</option>
             </select>
+              <label for="time">time</label>
+            <input type="time"required>
 
             <input type="hidden" id="days" name="days" value="0">
             <input type="hidden" id="totalprice" name="totalprice" value="0">
